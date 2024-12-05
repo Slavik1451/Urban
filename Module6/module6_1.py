@@ -44,4 +44,5 @@ print(a2.fed)
 a1.eat(p1)
 a2.eat(p2)
 print(a1.alive)
+
 print(a2.fed)
