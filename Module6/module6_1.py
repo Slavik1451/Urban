@@ -4,32 +4,37 @@ class Animal:
         self.fed = False
         self.name = name
 
-    def eat(self, food):
-        if food and getattr(food, 'edible', False):
-            print(f'{self.name} съел {food.name}')
-            self.fed = True
-        else:
-            print(f'{self.name} не стал есть {food.name if food else "неизвестное"}')
-            self.alive = False
 class Plant:
-    def __init__(self, name, edible = False):
-        self.edible = edible
+    def __init__(self, name):
+        self.edible = False
         self.name = name
 
 class Mammal(Animal):
-    pass
+    def eat(self, food):
+        if food.edible is True:
+            print(f"{self.name} съел {food.name}")
+            self.fed = True
+        else:
+            print(f"{self.name} не стал есть {food.name}")
+            self.alive = False
 
 
 class Predator(Animal):
-    pass
+    def eat(self, food):
+        if food.edible is True:
+            print(f"{self.name} съел {food.name}")
+            self.fed = True
+        else:
+            print(f"{self.name} не стал есть {food.name}")
+            self.alive = False
 
 class Flower(Plant):
-    def __init__(self, name):
-        super().__init__(name, edible=False)
+    pass
 
 class Fruit(Plant):
     def __init__(self, name):
-        super().__init__(name, edible=True)
+        super().__init__(name)
+        self.edible = True
 
 
 
